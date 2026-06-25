@@ -1,0 +1,61 @@
+{
+  "name": "@g8scope/nextjs",
+  "version": "1.0.0",
+  "description": "Next.js framework adapter for g8scope — a thin layer over @g8scope/js that wires error capture into instrumentation.ts (register + onRequestError) and offers manual captureException. Never throws into the host app.",
+  "keywords": [
+    "g8scope",
+    "error-tracking",
+    "observability",
+    "sdk",
+    "nextjs",
+    "instrumentation"
+  ],
+  "license": "MIT",
+  "author": "Developers Hub Sdn Bhd",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@g8scope/js": "file:../g8scope-js"
+  },
+  "peerDependencies": {
+    "next": ">=13"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developers-hub-my/g8scope-nextjs.git"
+  },
+  "homepage": "https://scope.g8suite.com",
+  "engines": {
+    "node": ">=18"
+  }
+}
