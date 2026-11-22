@@ -34,7 +34,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@g8scope/js": "file:../g8scope-js"
+    "@g8scope/js": "file:../bliptrace-js"
   },
   "peerDependencies": {
     "next": ">=13"
@@ -52,7 +52,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/developers-hub-my/g8scope-nextjs.git"
+    "url": "git+https://github.com/bliptrace/bliptrace-nextjs.git"
   },
   "homepage": "https://scope.g8suite.com",
   "engines": {

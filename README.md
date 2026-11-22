@@ -1,6 +1,6 @@
 # @g8scope/nextjs
 
-Next.js framework adapter for [g8scope](https://scope.g8suite.com). A thin layer over the runtime SDK [`@g8scope/js`](https://github.com/developers-hub-my/g8scope-js) that wires error capture into Next.js's instrumentation hooks. It is **fire-and-forget** and **never throws into your app** — a slow or unreachable ingest endpoint can never break a request.
+Next.js framework adapter for [g8scope](https://scope.g8suite.com). A thin layer over the runtime SDK [`@g8scope/js`](https://github.com/bliptrace/bliptrace-js) that wires error capture into Next.js's instrumentation hooks. It is **fire-and-forget** and **never throws into your app** — a slow or unreachable ingest endpoint can never break a request.
 
 The project is resolved **server-side from your ingest key**; it is never sent in the payload.
 
@@ -51,7 +51,7 @@ try {
 
 ## Options
 
-`register(options)` accepts every [`@g8scope/js` `ConfigOptions`](https://github.com/developers-hub-my/g8scope-js) field, including:
+`register(options)` accepts every [`@g8scope/js` `ConfigOptions`](https://github.com/bliptrace/bliptrace-js) field, including:
 
 | Option | Default | Description |
 | --- | --- | --- |
