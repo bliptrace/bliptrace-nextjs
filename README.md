@@ -22,7 +22,7 @@ import { register as registerG8scope, onRequestError as onG8scopeRequestError } 
 
 export function register() {
   registerG8scope({
-    key: process.env.G8SCOPE_INGEST_KEY,
+    key: process.env.BLIPTRACE_INGEST_KEY,
     environment: process.env.NODE_ENV,
     // endpoint defaults to https://ingest.scope.g8suite.com
   });

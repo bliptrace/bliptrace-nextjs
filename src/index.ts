@@ -25,7 +25,7 @@ let singleton: Client | null = null;
  * Set up the singleton g8scope client. Call from `instrumentation.ts`:
  *
  *   export function register() {
- *     register({ key: process.env.G8SCOPE_INGEST_KEY });
+ *     register({ key: process.env.BLIPTRACE_INGEST_KEY });
  *   }
  *
  * Returns the client (or null if it could not be built). Never throws.
