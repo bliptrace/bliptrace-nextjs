@@ -1,8 +1,8 @@
-import { Client, Config, type ConfigOptions, type Context, type Transport } from '@g8scope/js';
+import { Client, Config, type ConfigOptions, type Context, type Transport } from '@bliptrace/js';
 import { buildContext } from './context.js';
 
-export { Client, Config } from '@g8scope/js';
-export type { ConfigOptions, Context, Transport, Envelope, Frame } from '@g8scope/js';
+export { Client, Config } from '@bliptrace/js';
+export type { ConfigOptions, Context, Transport, Envelope, Frame } from '@bliptrace/js';
 export { buildContext, type RequestLike } from './context.js';
 
 /** Options accepted by {@link register}. Extends the runtime config with a test seam. */
@@ -22,7 +22,7 @@ export interface CaptureOptions extends RegisterOptions {
 let singleton: Client | null = null;
 
 /**
- * Set up the singleton g8scope client. Call from `instrumentation.ts`:
+ * Set up the singleton Bliptrace client. Call from `instrumentation.ts`:
  *
  *   export function register() {
  *     register({ key: process.env.BLIPTRACE_INGEST_KEY });

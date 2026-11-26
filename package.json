@@ -1,9 +1,9 @@
 {
-  "name": "@g8scope/nextjs",
+  "name": "@bliptrace/nextjs",
   "version": "1.0.0",
-  "description": "Next.js framework adapter for g8scope — a thin layer over @g8scope/js that wires error capture into instrumentation.ts (register + onRequestError) and offers manual captureException. Never throws into the host app.",
+  "description": "Next.js framework adapter for Bliptrace — a thin layer over @bliptrace/js that wires error capture into instrumentation.ts (register + onRequestError) and offers manual captureException. Never throws into the host app.",
   "keywords": [
-    "g8scope",
+    "bliptrace",
     "error-tracking",
     "observability",
     "sdk",
@@ -34,7 +34,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@g8scope/js": "file:../bliptrace-js"
+    "@bliptrace/js": "file:../bliptrace-js"
   },
   "peerDependencies": {
     "next": ">=13"

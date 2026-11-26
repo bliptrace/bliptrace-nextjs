@@ -1,4 +1,4 @@
-import type { Context } from '@g8scope/js';
+import type { Context } from '@bliptrace/js';
 
 /** Header names stripped from the captured request context (PII / secrets). */
 const STRIP_HEADERS = ['authorization', 'cookie', 'set-cookie'];

@@ -1,13 +1,13 @@
-# @g8scope/nextjs
+# @bliptrace/nextjs
 
-Next.js framework adapter for [g8scope](https://scope.g8suite.com). A thin layer over the runtime SDK [`@g8scope/js`](https://github.com/bliptrace/bliptrace-js) that wires error capture into Next.js's instrumentation hooks. It is **fire-and-forget** and **never throws into your app** — a slow or unreachable ingest endpoint can never break a request.
+Next.js framework adapter for [Bliptrace](https://scope.g8suite.com). A thin layer over the runtime SDK [`@bliptrace/js`](https://github.com/bliptrace/bliptrace-js) that wires error capture into Next.js's instrumentation hooks. It is **fire-and-forget** and **never throws into your app** — a slow or unreachable ingest endpoint can never break a request.
 
 The project is resolved **server-side from your ingest key**; it is never sent in the payload.
 
 ## Install
 
 ```bash
-npm install @g8scope/nextjs
+npm install @bliptrace/nextjs
 ```
 
 `next` is an optional peer dependency (>=13) — the adapter does not import Next types, so it works with any modern version.
@@ -18,10 +18,10 @@ Next.js 13.4+ runs the `register` export on startup; Next.js 15 calls `onRequest
 
 ```ts
 // instrumentation.ts (project root, or src/)
-import { register as registerG8scope, onRequestError as onG8scopeRequestError } from '@g8scope/nextjs';
+import { register as registerBliptrace, onRequestError as onBliptraceRequestError } from '@bliptrace/nextjs';
 
 export function register() {
-  registerG8scope({
+  registerBliptrace({
     key: process.env.BLIPTRACE_INGEST_KEY,
     environment: process.env.NODE_ENV,
     // endpoint defaults to https://ingest.scope.g8suite.com
@@ -29,7 +29,7 @@ export function register() {
 }
 
 // Next 15 onRequestError signature: (error, request, context)
-export const onRequestError = onG8scopeRequestError;
+export const onRequestError = onBliptraceRequestError;
 ```
 
 That is the whole integration. Every unhandled server error is now captured with request context (method, URL, headers — minus `authorization` and `cookie`).
@@ -39,7 +39,7 @@ That is the whole integration. Every unhandled server error is now captured with
 Anywhere in server code, after `register()` has run:
 
 ```ts
-import { captureException } from '@g8scope/nextjs';
+import { captureException } from '@bliptrace/nextjs';
 
 try {
   await doRiskyThing();
@@ -51,7 +51,7 @@ try {
 
 ## Options
 
-`register(options)` accepts every [`@g8scope/js` `ConfigOptions`](https://github.com/bliptrace/bliptrace-js) field, including:
+`register(options)` accepts every [`@bliptrace/js` `ConfigOptions`](https://github.com/bliptrace/bliptrace-js) field, including:
 
 | Option | Default | Description |
 | --- | --- | --- |
@@ -74,7 +74,7 @@ try {
 - `captureException(error, options?)` — manual capture via the singleton.
 - `buildContext(request)` — build envelope context from a request-like object.
 - `getClient()` / `resetClient()` — singleton access (the latter mainly for tests).
-- Re-exports `Client`, `Config` from `@g8scope/js`.
+- Re-exports `Client`, `Config` from `@bliptrace/js`.
 
 ## Licence
 

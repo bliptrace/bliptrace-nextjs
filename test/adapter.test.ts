@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import type { Envelope, Transport } from '@g8scope/js';
+import type { Envelope, Transport } from '@bliptrace/js';
 import {
   buildContext,
   captureException,
@@ -40,7 +40,7 @@ describe('onRequestError', () => {
     expect(t.sent).toHaveLength(1);
     const env = t.sent[0].envelope;
     expect(env.runtime.name).toBe('javascript');
-    expect(env.sdk?.name).toBe('g8scope-js');
+    expect(env.sdk?.name).toBe('bliptrace-js');
     expect(env.exception.type).toBe('TypeError');
     expect(env.exception.message).toBe('boom');
     expect(env.event_id).toMatch(/^[0-9a-f-]{36}$/);
