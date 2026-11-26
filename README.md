@@ -1,6 +1,6 @@
 # @bliptrace/nextjs
 
-Next.js framework adapter for [Bliptrace](https://scope.g8suite.com). A thin layer over the runtime SDK [`@bliptrace/js`](https://github.com/bliptrace/bliptrace-js) that wires error capture into Next.js's instrumentation hooks. It is **fire-and-forget** and **never throws into your app** — a slow or unreachable ingest endpoint can never break a request.
+Next.js framework adapter for [Bliptrace](https://bliptrace.com). A thin layer over the runtime SDK [`@bliptrace/js`](https://github.com/bliptrace/bliptrace-js) that wires error capture into Next.js's instrumentation hooks. It is **fire-and-forget** and **never throws into your app** — a slow or unreachable ingest endpoint can never break a request.
 
 The project is resolved **server-side from your ingest key**; it is never sent in the payload.
 
@@ -24,7 +24,7 @@ export function register() {
   registerBliptrace({
     key: process.env.BLIPTRACE_INGEST_KEY,
     environment: process.env.NODE_ENV,
-    // endpoint defaults to https://ingest.scope.g8suite.com
+    // endpoint defaults to https://ingest.bliptrace.com
   });
 }
 
@@ -56,7 +56,7 @@ try {
 | Option | Default | Description |
 | --- | --- | --- |
 | `key` | `null` | Ingest key. The server resolves the project from this. Capture is a no-op without it. |
-| `endpoint` | `https://ingest.scope.g8suite.com` | Ingest API base URL. |
+| `endpoint` | `https://ingest.bliptrace.com` | Ingest API base URL. |
 | `environment` | `production` | Environment label on the envelope. |
 | `release` | `null` | Release / version identifier. |
 | `enabled` | `true` | Set `false` to disable capture entirely. |
